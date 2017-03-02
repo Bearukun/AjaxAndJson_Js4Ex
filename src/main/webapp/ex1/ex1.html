@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <div id="app"></div>
+        <button id="btn">Get a quote</button>
+        <script>
+
+            document.getElementById("btn").onclick = function(){
+                
+                getQuote();
+                
+            };
+
+
+            function getQuote() {
+
+                var app = document.getElementById("app");
+
+                app.innerHTML = "blablabla";
+
+                var url = "/AjaxAndJson_Js4Ex/PersonControl";
+                var conf = {
+                    method: 'get'
+
+                };
+
+
+                var promise = fetch(url, conf);
+
+                promise.then(function (response) {
+
+                    return response.text();
+
+                }).then(function (text) {
+
+                    app.innerHTML = text;
+
+                });
+
+            }
+
+
+
+
+        </script>
+    </body>
+</html>

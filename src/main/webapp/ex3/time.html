@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="time"></div>
+
+
+        <script>
+
+            setInterval(function () {
+
+                fetchTime();
+
+            }, 1000);
+
+
+            function fetchTime() {
+
+                var app = document.getElementById("time");
+
+                app.innerHTML = "blablabla";
+
+                var url = "/AjaxAndJson_Js4Ex/TimeEx3";
+                var conf = {
+                    method: 'get'
+
+                };
+
+
+                var promise = fetch(url, conf);
+
+                promise.then(function (response) {
+
+                    return response.text();
+
+                }).then(function (text) {
+
+                    app.innerHTML = text;
+
+                });
+
+            }
+
+
+        </script>
+
+    </body>
+</html>
